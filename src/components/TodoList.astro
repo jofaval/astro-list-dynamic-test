@@ -1,0 +1,23 @@
+---
+import TodoInput from "./TodoInput";
+import type { Props as TodoTaskType } from "./TodoTask.astro";
+import TodoTask from "./TodoTask.astro";
+
+export interface Props {
+  tasks: TodoTaskType[];
+}
+
+const { tasks } = Astro.props;
+
+// const onSubmit = (text) => {
+//   console.log(text);
+// };
+---
+
+<div class="todo__list">
+  {tasks.map((taskProps) => <TodoTask {...taskProps} />)}
+
+  <div class="todo__actions">
+    <TodoInput />
+  </div>
+</div>
