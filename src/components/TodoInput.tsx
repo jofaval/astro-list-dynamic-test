@@ -1,35 +1,51 @@
 import { ChangeEvent, FC, useState } from "react";
+import styled from "styled-components";
 
 interface TodoInputProps {
   onSubmit?: (text: string) => void;
 }
 
+const TodoInputGroup = styled.div``;
+
+const TodoInputLabel = styled.label``;
+
+const TodoInputInput = styled.input``;
+
+const TodoInputButton = styled.button``;
+
+const initialTaskName = "";
+
 const TodoInput: FC<TodoInputProps> = ({ onSubmit }) => {
-  const [taskName, setTaskName] = useState("");
+  const [taskName, setTaskName] = useState(initialTaskName);
 
   const onChange = (event: ChangeEvent<HTMLInputElement>) => {
     setTaskName(event.target.value);
   };
 
   const handleOnSubmit = () => {
+    if (taskName) {
+      return;
+    }
+
     if (onSubmit) {
       onSubmit(taskName);
     }
+
+    setTaskName(initialTaskName);
   };
 
   return (
-    <div className="todo__input__group">
-      <label htmlFor="todoInputGroup">Task Name:</label>
-      <input
+    <TodoInputGroup>
+      <TodoInputLabel htmlFor="todoInputGroup">Task Name:</TodoInputLabel>
+      <TodoInputInput
         type="text"
         value={taskName}
         onChange={onChange}
         id="todoInputGroup"
       />
-      <button className="todo__input__btn" onClick={handleOnSubmit}>
-        Submit
-      </button>
-    </div>
+
+      <TodoInputButton onClick={handleOnSubmit}>Submit</TodoInputButton>
+    </TodoInputGroup>
   );
 };
 
