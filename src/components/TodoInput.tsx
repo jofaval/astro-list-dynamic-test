@@ -11,7 +11,11 @@ const TodoInputLabel = styled.label``;
 
 const TodoInputInput = styled.input``;
 
-const TodoInputButton = styled.button``;
+const TodoInputButton = styled.button`
+  border: none;
+  padding: 0.5rem 0.75rem;
+  background: none;
+`;
 
 const initialTaskName = "";
 
@@ -23,7 +27,7 @@ const TodoInput: FC<TodoInputProps> = ({ onSubmit }) => {
   };
 
   const handleOnSubmit = () => {
-    if (taskName) {
+    if (!taskName) {
       return;
     }
 
