@@ -1,0 +1,20 @@
+name: Branching
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  Deployment:
+    runs-on: ubuntu-latest
+    env:
+      CI: false
+    steps:
+    - name: Astro Deploy
+      uses: withastro/action@4bc96d3ea1cb1c93fc300aee51cf420a12799b3f
+      # uses: withastro/action@v0
+      with:
+        path: .
+        node-version: 18.5.0
+        package-manager: pnpm
