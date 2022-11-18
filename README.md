@@ -12,7 +12,9 @@ I'm curious to see if my React apps could be built with Astro as to minimize the
 
 ## Conclusions
 
-To be made...
+Useful, fast, comfortable, and with a clear separation between client and server loaded.
+
+I was looking to see if and when I could add some interactivity with React from server-rendered components, and it was a nice experience all the way through.
 
 ## Results
 
